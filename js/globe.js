@@ -38,10 +38,8 @@ var colors = d3.scale.linear()
           .range(["#b2182b","#d6604d","#f4a582","#fddbc7","#f7f7f7","#d1e5f0","#92c5de","#4393c3","#2166ac"].reverse());
 
 d3.json("data/world-110m.json", function(error, world) {
-    console.log(world)
+    console.log(world);
     
- 
-      
     d3.json('data/2010_temp_anomaly_geojson.json', function(error, temps){
         console.log(error, temps);
         svg.append("defs").append("path")

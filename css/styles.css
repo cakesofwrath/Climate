@@ -3,8 +3,12 @@ body{
     z-index: 0;
 }
 
+path {
+    fill: white;
+}
+
 .stroke {
-  fill: none;
+  fill: white;
   stroke: #000;
   stroke-width: 3px;
 }
