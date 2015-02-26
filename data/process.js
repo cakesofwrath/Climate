@@ -13,10 +13,6 @@ var data = JSON.parse(fs.readFileSync('data.json', 'utf8'));
 
 var geoJSONs = [];
 
-var dataIndex = 0;
-var t = 0, lat = 0, long = 0;
-var d = 2.5;
-
 function saveAll(gJsons) {
     if(gJsons.length > 10){
         console.error("Error: too many geoJSONs");
@@ -50,12 +46,18 @@ var avg_t_a = function(index) {
 ==============================================================================================================
 */
 
+var dataIndex = 0;
+var t = 0, lat = 0, long = 0;
+var d = 2.5;
+
 while(t < schema.time.length) { //The degrees north
     var geoJSON = {
                     'type': 'FeatureCollection',
                     'features': []
                 };
+    lat = 0;
     while(lat < schema.latitude.length) { //The degrees east.
+        long = 0;
         while(long < schema.longitude.length) { //days since 1850-1-1 00:00:00, continues until 2014
             geoJSON.features.push({
                'type': 'Feature',
