@@ -12,4 +12,16 @@
     <script>
         var stars = starPlace();
     </script>
+    <script>
+        var data;
+        d3.json("data/giss_data.json", function(err, json) {
+           if(err) return console.warn(err);
+           console.log(json);
+        });
+        d3.json("data/giss_schema.json", function(err, json) {
+           if(err) return console.warn(err);
+           console.log(json);
+        });
+        
+    </script>
 </body>
