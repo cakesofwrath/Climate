@@ -38,9 +38,9 @@ var colors = d3.scale.linear()
           .range(["#b2182b","#d6604d","#f4a582","#fddbc7","#f7f7f7","#d1e5f0","#92c5de","#4393c3","#2166ac"].reverse());
 
 d3.json("data/world-110m.json", function(error, world) {
-    console.log(world);
+    //console.log(world);
     
-    d3.json('data/2010_temp_anomaly_geojson.json', function(error, temps){
+    d3.json('data/geoJSON/giss.json', function(error, temps){
         console.log(error, temps);
         svg.append("defs").append("path")
             .datum({type: "Sphere"})
@@ -60,10 +60,10 @@ d3.json("data/world-110m.json", function(error, world) {
             .enter()
             .append('path')
             .style("fill", function(d){
-                return d.properties.temperature_anomaly ? colors(d.properties.temperature_anomaly) : "#000";
+                return d.properties.temperature_anomaly[13] ? colors(d.properties.temperature_anomaly[13]) : "#000";
             })
             .style("fill-opacity", function(d){
-                return d.properties.temperature_anomaly ? "0.7" : "0.0";
+                return d.properties.temperature_anomaly[13] ? "0.7" : "0.0";
             })
             .attr('d', path);
             
